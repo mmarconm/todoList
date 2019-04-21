@@ -25,21 +25,21 @@ if(isset($_GET['as'], $_GET['item'])) {
             ]);
             break;
             
-        // case 'notdone':
+        case 'notdone':
             
-        //     $doneQuery = $db->prepare("
-        //         UPDATE items
-        //         SET done = 0
-        //         WHERE id = :item
-        //         AND user = :user
-        //     ");
+            $doneQuery = $db->prepare("
+                UPDATE items
+                SET done = 0
+                WHERE id = :item
+                AND user = :user
+            ");
 
-        //     $doneQuery->execute([
-        //         'item' => $item,
-        //         'user' => $_SESSION['user_id']
-        //     ]);
+            $doneQuery->execute([
+                'item' => $item,
+                'user' => $_SESSION['user_id']
+            ]);
 
-        // break;
+        break;
     }
 
 }

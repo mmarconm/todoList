@@ -50,6 +50,10 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
 
                 <?php if(!$item['done']): ?>
                     <a href="mark.php?as=done&item=<?php echo $item['id']; ?>" class="done-button">Mark as Done!</a>
+
+                <?php elseif($item['done']): ?>
+                    <a href="mark.php?as=notdone&item=<?php echo $item['id']; ?>" class="done-button">Undone!</a>
+                
                 <?php endif; ?>
             </li>
         <?php endforeach; ?>
