@@ -47,18 +47,18 @@ $items = $itemsQuery->rowCount() ? $itemsQuery : [];
         <?php foreach($items as $item): ?>
             <li>
 
-            <!-- Obter o id do elemento e deletar do banco e retornar para index.php -->
-            <a class="delete-button" href="delete.php?item_id=<?php echo $item['id']; ?>">Delete</a>
-
-            <span class="item <?php echo $item['done'] ? ' done' : '' ?>"><?php echo $item['name']; ?></span>
-
+                <span class="item <?php echo $item['done'] ? ' done' : '' ?>"><?php echo $item['name']; ?></span>
                 <?php if(!$item['done']): ?>
                     <a href="mark.php?as=done&item=<?php echo $item['id']; ?>" class="done-button">Mark as Done!</a>
-
                 <?php elseif($item['done']): ?>
                     <a href="mark.php?as=notdone&item=<?php echo $item['id']; ?>" class="done-button">Undone!</a>
-                
                 <?php endif; ?>
+
+            
+                <div class="buttons">
+                    <!-- Obter o id do elemento e deletar do banco e retornar para index.php -->
+                    <a class="delete-button" href="delete.php?item_id=<?php echo $item['id']; ?>">Delete</a>
+                </div>
             </li>
         <?php endforeach; ?>
     </ul>
